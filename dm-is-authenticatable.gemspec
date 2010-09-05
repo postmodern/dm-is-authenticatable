@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "dm-is-authenticatable.gemspec",
     "lib/dm-is-authenticatable.rb",
     "lib/dm-is-authenticatable/is/authenticatable.rb"
   ]
@@ -37,21 +38,33 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A DataMapper plugin for adding authentication to your DataMapper models.}
+  s.test_files = [
+    "spec/spec_helper.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activesupport>, ["~> 3.0.0"])
+      s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<dm-types>, ["~> 1.0.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
     else
+      s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
+      s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
+      s.add_dependency(%q<dm-types>, ["~> 1.0.0"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
       s.add_dependency(%q<rspec>, ["~> 1.3.0"])
     end
   else
+    s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
+    s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
+    s.add_dependency(%q<dm-types>, ["~> 1.0.0"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
     s.add_dependency(%q<rspec>, ["~> 1.3.0"])
