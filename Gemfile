@@ -68,8 +68,11 @@ else
   gem 'activesupport', 	'~> 3.0.0', :require => 'active_support'
 end
 
-gem 'dm-core',	DM_VERSION, :git => "#{DATA_MAPPER}/dm-core.git"
-gem 'dm-types',	DM_VERSION, :git => "#{DATA_MAPPER}/dm-types.git"
+gem 'bcrypt-ruby'
+
+gem 'dm-core',		DM_VERSION, :git => "#{DATA_MAPPER}/dm-core.git"
+gem 'dm-types',		DM_VERSION, :git => "#{DATA_MAPPER}/dm-types.git"
+gem 'dm-validations',	DM_VERSION, :git => "#{DATA_MAPPER}/dm-validations.git"
 
 group :development do
   gem 'rake',		'~> 0.8.7'

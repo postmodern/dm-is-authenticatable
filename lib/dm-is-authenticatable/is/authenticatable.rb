@@ -1,4 +1,5 @@
 require 'dm-types/bcrypt_hash'
+require 'dm-validations'
 
 module DataMapper
   module Is
@@ -9,6 +10,8 @@ module DataMapper
     
         extend DataMapper::Is::Authenticatable::ClassMethods
         include DataMapper::Is::Authenticatable::InstanceMethods
+
+        validates_confirmation_of :password
       end
 
       module ClassMethods

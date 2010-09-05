@@ -24,11 +24,19 @@ GIT
       stringex (~> 1.1.0)
       uuidtools (~> 2.1.1)
 
+GIT
+  remote: git://github.com/datamapper/dm-validations.git
+  revision: 8e93da196208556c3436f2de19fabe505ae8fd4f
+  specs:
+    dm-validations (1.0.0)
+      dm-core (~> 1.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
     activesupport (3.0.0)
     addressable (2.2.0)
+    bcrypt-ruby (2.1.2)
     extlib (0.9.15)
     fastercsv (1.5.3)
     git (1.2.5)
@@ -49,9 +57,11 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (~> 3.0.0)
+  bcrypt-ruby
   dm-core (~> 1.0.0)!
   dm-migrations (~> 1.0.0)!
   dm-types (~> 1.0.0)!
+  dm-validations (~> 1.0.0)!
   jeweler (~> 1.5.0.pre)
   rake (~> 0.8.7)
   rdiscount (~> 1.6.3)

@@ -30,7 +30,10 @@ Gem::Specification.new do |s|
     "VERSION",
     "dm-is-authenticatable.gemspec",
     "lib/dm-is-authenticatable.rb",
-    "lib/dm-is-authenticatable/is/authenticatable.rb"
+    "lib/dm-is-authenticatable/is/authenticatable.rb",
+    "spec/integration/authenticatable_spec.rb",
+    "spec/integration/models/user.rb",
+    "spec/spec_helper.rb"
   ]
   s.has_rdoc = %q{yard}
   s.homepage = %q{http://github.com/postmodern/dm-is-authenticatable}
@@ -39,6 +42,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A DataMapper plugin for adding authentication to your DataMapper models.}
   s.test_files = [
+    "spec/integration/authenticatable_spec.rb",
+    "spec/integration/models/user.rb",
     "spec/spec_helper.rb"
   ]
 
@@ -48,23 +53,29 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<activesupport>, ["~> 3.0.0"])
+      s.add_runtime_dependency(%q<bcrypt-ruby>, [">= 0"])
       s.add_runtime_dependency(%q<dm-core>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<dm-types>, ["~> 1.0.0"])
+      s.add_runtime_dependency(%q<dm-validations>, ["~> 1.0.0"])
       s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3.0"])
     else
       s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
+      s.add_dependency(%q<bcrypt-ruby>, [">= 0"])
       s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
       s.add_dependency(%q<dm-types>, ["~> 1.0.0"])
+      s.add_dependency(%q<dm-validations>, ["~> 1.0.0"])
       s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
       s.add_dependency(%q<rspec>, ["~> 1.3.0"])
     end
   else
     s.add_dependency(%q<activesupport>, ["~> 3.0.0"])
+    s.add_dependency(%q<bcrypt-ruby>, [">= 0"])
     s.add_dependency(%q<dm-core>, ["~> 1.0.0"])
     s.add_dependency(%q<dm-types>, ["~> 1.0.0"])
+    s.add_dependency(%q<dm-validations>, ["~> 1.0.0"])
     s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.0.pre"])
     s.add_dependency(%q<rspec>, ["~> 1.3.0"])
