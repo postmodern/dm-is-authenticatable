@@ -63,6 +63,12 @@ describe DataMapper::Is::Authenticatable do
 
     subject { User }
 
+    it "should not allow authenticating with unknown resources" do
+      lambda {
+        subject.authenticate(:name => 'alice', :password => password)
+      }.should raise_error(DataMapper::Is::Authenticatable::UnknownResource)
+    end
+
     it "should allow authenticating with a password" do
       user = subject.authenticate(:name => name, :password => password)
       user.name.should == name
