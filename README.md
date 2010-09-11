@@ -29,7 +29,8 @@ your DataMapper models.
     user.password = 'secret'
     # => "secret"
 
-    # Validates confirmation of the password
+Validates confirmation of the password:
+
     user.valid?
     # => false
 
@@ -39,9 +40,12 @@ your DataMapper models.
     user.valid?
     # => true
 
-    # Uses BCryptHash by default.
+Uses BCryptHash by default:
+
     user.encrypted_password
     # => "$2a$10$kC./7/ClA7mJwqqWhO02hu7//ybbsn7QKi4p5PZN0R1.XeQ/oYBAC"
+
+Handles finding and authenticating resources in the database:
 
     user.save
     # => true
