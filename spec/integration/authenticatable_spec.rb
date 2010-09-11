@@ -68,11 +68,6 @@ describe DataMapper::Is::Authenticatable do
       user.name.should == name
     end
 
-    it "should allow authenticating without a password" do
-      user = subject.authenticate(:name => name)
-      user.name.should == name
-    end
-
     it "should not authenticate with an incorrect password" do
       user = subject.authenticate(:name => name, :password => 'fail')
 

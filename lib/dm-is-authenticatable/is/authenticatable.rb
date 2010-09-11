@@ -27,15 +27,20 @@ module DataMapper
         # @return [DataMapper::Resource]
         #   The authenticated resource.
         #
+        # @raise [ArgumentError]
+        #   The `:password` option was not specified.
+        #
         def authenticate(attributes)
           password = attributes.delete(:password)
           resource = self.first(attributes)
 
-          if password
-            return nil unless resource.encrypted_password == password
+          unless password
+            raise(ArgumentError,"must specify the :password option",caller)
           end
 
-          return resource
+          if resource.encrypted_password == password
+            resource
+          end
         end
       end
 
