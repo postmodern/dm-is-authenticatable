@@ -1,24 +1,40 @@
 GIT
   remote: git://github.com/datamapper/dm-core.git
-  revision: c3eacc067d2aa90c5e147ae9e799ab37955d138a
+  revision: a68434e6e1d92a1fc3ef4fdcc2deaf20b6561b5c
   specs:
-    dm-core (1.0.0)
+    dm-core (1.0.2)
       addressable (~> 2.2)
       extlib (~> 0.9.15)
 
 GIT
-  remote: git://github.com/datamapper/dm-migrations.git
-  revision: da2ef7d05624984e3cd1c22c7a9c4eef68373661
+  remote: git://github.com/datamapper/dm-do-adapter.git
+  revision: b968e00e88a2264b8fc26ca67480620dac6d1409
   specs:
-    dm-migrations (1.0.0)
-      dm-core (~> 1.0.0)
+    dm-do-adapter (1.0.2)
+      data_objects (~> 0.10.2)
+      dm-core (~> 1.0.2)
+
+GIT
+  remote: git://github.com/datamapper/dm-migrations.git
+  revision: 03738a7748662267aa59dfc3405abca012ad0c56
+  specs:
+    dm-migrations (1.0.2)
+      dm-core (~> 1.0.2)
+
+GIT
+  remote: git://github.com/datamapper/dm-sqlite-adapter.git
+  revision: 3e5c8adb517a3107883e0883cce83e6236ffd1de
+  specs:
+    dm-sqlite-adapter (1.0.2)
+      dm-do-adapter (~> 1.0.2)
+      do_sqlite3 (~> 0.10.2)
 
 GIT
   remote: git://github.com/datamapper/dm-types.git
-  revision: 2b9648fab2028d519896a278f314f75f61c39b60
+  revision: 6799651c900bb188ce2d25558a3d4b25c3160b22
   specs:
-    dm-types (1.0.0)
-      dm-core (~> 1.0.0)
+    dm-types (1.0.2)
+      dm-core (~> 1.0.2)
       fastercsv (~> 1.5.3)
       json_pure (~> 1.4)
       stringex (~> 1.1.0)
@@ -26,16 +42,25 @@ GIT
 
 GIT
   remote: git://github.com/datamapper/dm-validations.git
-  revision: 8e93da196208556c3436f2de19fabe505ae8fd4f
+  revision: 71f3946b4667a70ad077fb312f300af3e81cd2c5
   specs:
-    dm-validations (1.0.0)
-      dm-core (~> 1.0.0)
+    dm-validations (1.0.2)
+      dm-core (~> 1.0.2)
+
+GIT
+  remote: git://github.com/datamapper/do.git
+  revision: 3455ab4914a86fa816d7deccca397ffc2f82deb5
+  specs:
+    data_objects (0.10.3)
+      addressable (~> 2.1)
+    do_sqlite3 (0.10.3)
+      data_objects (= 0.10.3)
 
 GEM
   remote: http://rubygems.org/
   specs:
     activesupport (3.0.0)
-    addressable (2.2.0)
+    addressable (2.2.1)
     bcrypt-ruby (2.1.2)
     extlib (0.9.15)
     fastercsv (1.5.3)
@@ -58,10 +83,14 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 3.0.0)
   bcrypt-ruby
-  dm-core (~> 1.0.0)!
-  dm-migrations (~> 1.0.0)!
-  dm-types (~> 1.0.0)!
-  dm-validations (~> 1.0.0)!
+  data_objects (~> 0.10.3)!
+  dm-core (~> 1.0.2)!
+  dm-do-adapter (~> 1.0.2)!
+  dm-migrations (~> 1.0.2)!
+  dm-sqlite-adapter (~> 1.0.2)!
+  dm-types (~> 1.0.2)!
+  dm-validations (~> 1.0.2)!
+  do_sqlite3 (~> 0.10.3)!
   jeweler (~> 1.5.0.pre)
   rake (~> 0.8.7)
   rdiscount (~> 1.6.3)

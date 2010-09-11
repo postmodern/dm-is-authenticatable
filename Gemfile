@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 DATA_MAPPER = 'git://github.com/datamapper'
-DM_VERSION = '~> 1.0.0'
+DM_VERSION = '~> 1.0.2'
 
 # We bundle both AS and extlib while extlib compatibility needs to be kept
 # around. require 'dm-core' will ensure that only one is activated at any
