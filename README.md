@@ -7,7 +7,9 @@
 ## Description
 
 A DataMapper plugin for adding authentication and encrypted passwords to
-your DataMapper models.
+your DataMapper models. Ideal for use with
+[warden](http://github.com/hassox/warden) or
+[sinatra_warden](http://github.com/jsmestad/sinatra_warden).
 
 ## Example
 
