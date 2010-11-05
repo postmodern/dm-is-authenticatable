@@ -1,7 +1,7 @@
-source 'http://rubygems.org'
+source :rubygems
 
-DATA_MAPPER = 'git://github.com/datamapper'
-DM_VERSION = '~> 1.0.2'
+DATA_MAPPER = 'http://github.com/datamapper'
+DM_VERSION = '~> 1.0.0'
 
 # We bundle both AS and extlib while extlib compatibility needs to be kept
 # around. require 'dm-core' will ensure that only one is activated at any
@@ -63,7 +63,7 @@ DM_VERSION = '~> 1.0.2'
 #
 
 if ENV['EXTLIB']
-  gem 'extlib', 		'~> 0.9.15'
+  gem 'extlib', 	'~> 0.9.15'
 else
   gem 'activesupport', 	'~> 3.0.0', :require => 'active_support'
 end
@@ -75,11 +75,6 @@ gem 'dm-types',		DM_VERSION, :git => "#{DATA_MAPPER}/dm-types.git"
 gem 'dm-validations',	DM_VERSION, :git => "#{DATA_MAPPER}/dm-validations.git"
 
 group :development do
-  gem 'rake',		'~> 0.8.7'
-  gem 'jeweler',	'~> 1.5.0.pre'
-end
-
-group :doc do
   case RUBY_PLATFORM
   when 'java'
     gem 'maruku',	'~> 0.6.0'
@@ -87,6 +82,10 @@ group :doc do
     gem 'rdiscount',	'~> 1.6.3'
   end
 
+  gem 'rake',		'~> 0.8.7'
+  gem 'ore',		'~> 0.2.0'
+  gem 'ore-tasks',	'~> 0.1.2'
+  gem 'rspec',		'~> 2.0.0'
   gem 'yard',		'~> 0.6.0'
 end
 
@@ -121,5 +120,3 @@ group :test do
     gem plugin, DM_VERSION, :git => "#{DATA_MAPPER}/#{plugin}.git"
   end
 end
-
-gem 'rspec',	'~> 1.3.0', :group => [:development, :test]
