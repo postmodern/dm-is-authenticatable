@@ -111,8 +111,8 @@ group :development do
   end
 
   gem 'rake',		'~> 0.8.7'
-  gem 'ore',		'~> 0.2.0'
-  gem 'ore-tasks',	'~> 0.1.2'
+  gem 'ore-core',	'~> 0.1.0'
+  gem 'ore-tasks',	'~> 0.2.0'
   gem 'rspec',		'~> 2.0.0'
   gem 'yard',		'~> 0.6.0'
 end
