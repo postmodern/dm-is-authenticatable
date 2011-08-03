@@ -83,32 +83,24 @@
 source :rubygems
 
 DATAMAPPER = 'http://github.com/datamapper'
-DM_VERSION = '~> 1.0.0'
+DM_VERSION = '~> 1.0'
 DO_VERSION = '~> 0.10.2'
 DM_DO_ADAPTERS = %w[ sqlite postgres mysql oracle sqlserver ]
 RAILS = 'http://github.com/rails/rails.git'
 
-if ENV['EXTLIB']
-  gem 'extlib',		      '~> 0.9.15', :git => '#{DATAMAPPER}/extlib.git'
-else
-  gem 'activesupport',  '~> 3.0.0', :git => RAILS,
-                                    :branch => '3-0-stable',
-                                    :require => nil
-end
-
-gem 'bcrypt-ruby',	  '~> 2.1.0'
+gem 'bcrypt-ruby',	  '~> 2.1'
 
 gem 'dm-core',        DM_VERSION, :git => "#{DATAMAPPER}/dm-core.git"
 gem 'dm-types',		    DM_VERSION, :git => "#{DATAMAPPER}/dm-types.git"
 gem 'dm-validations',	DM_VERSION, :git => "#{DATAMAPPER}/dm-validations.git"
 
 group :development do
-  gem 'rake',		    '~> 0.8.7'
-  gem 'ore-tasks',	'~> 0.3.0'
-  gem 'rspec',		  '~> 2.4.0'
+  gem 'rake',		    '~> 0.8'
+  gem 'ore-tasks',	'~> 0.4'
+  gem 'rspec',		  '~> 2.4'
 
-  gem 'kramdown',   '~> 0.12.0'
-  gem 'yard',       '~> 0.6.0'
+  gem 'kramdown',   '~> 0.12'
+  gem 'yard',       '~> 0.7'
 end
 
 group :datamapper do
