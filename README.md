@@ -69,5 +69,6 @@ Handles finding and authenticating resources in the database:
 
 ## License
 
-See {file:LICENSE.txt} for license information.
+Copyright (c) 2010-2011 Hal Brodigan
 
+See {file:LICENSE.txt} for license information.
