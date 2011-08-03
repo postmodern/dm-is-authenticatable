@@ -65,7 +65,7 @@ Handles finding and authenticating resources in the database:
 
 ## Install
 
-    $ sudo gem install dm-is-authenticatable
+    $ gem install dm-is-authenticatable
 
 ## License
 
