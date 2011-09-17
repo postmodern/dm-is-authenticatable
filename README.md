@@ -56,6 +56,31 @@ Handles finding and authenticating resources in the database:
     User.authenticate(:name => 'bob', :password => 'secret')
     # => #<User: ...>
 
+Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme):
+
+    Warden::Manager.serialize_into_session { |user| user.id }
+    Warden::Manager.serialize_from_session { |id| User.get(id) }
+    
+    Warden::Strategies.add(:password) do
+      def valid?
+        # must specify both name and password
+        params['name'] && params['password']
+      end
+ 
+      def authenticate!
+        attributes = {
+          :name => params['name'],
+          :password => params['password']
+        }
+
+        if (user = User.authenticate(attributes))
+          success! user
+        else
+          fail! 'Invalid user name or password'
+        end
+      end
+    end
+
 ## Requirements
 
 * [bcrypt-ruby](http://rubygems.org/gems/bcrypt-ruby) ~> 2.1
