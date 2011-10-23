@@ -83,7 +83,7 @@ Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme
 
 ## Requirements
 
-* [bcrypt-ruby](http://rubygems.org/gems/bcrypt-ruby) ~> 2.1
+* [bcrypt-ruby](http://rubygems.org/gems/bcrypt-ruby) ~> 3.0, >= 2.1.0
 * [dm-core](http://github.com/datamapper/dm-core/) ~> 1.0
 * [dm-types](http://github.com/datamapper/dm-types/) ~> 1.0
 * [dm-validations](http://github.com/datamapper/dm-validations/) ~> 1.0

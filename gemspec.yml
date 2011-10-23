@@ -12,7 +12,7 @@ homepage: http://github.com/postmodern/dm-is-authenticatable
 has_yard: true
 
 dependencies:
-  bcrypt-ruby: ~> 2.1
+  bcrypt-ruby: ~> 3.0, >= 2.1.0
   dm-core: ~> 1.0
   dm-types: ~> 1.0
   dm-validations: ~> 1.0
