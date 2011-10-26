@@ -1,3 +1,7 @@
+### 0.1.2 / 2011-10-26
+
+* Require bcrypt-ruby ~> 3.0, >= 2.1.0.
+
 ### 0.1.1 / 2011-08-03
 
 * Require bcrypt-ruby ~> 2.1.
