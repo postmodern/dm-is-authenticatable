@@ -22,11 +22,14 @@ your DataMapper models. Ideal for use with
       include DataMapper::Resource
 
       is :authenticatable
+
+      property :id, Serial
     
       # Name of the Licence
       property :name, String
     
     end
+    DataMapper.finalize
   
     user = User.new(:name => 'bob')
     user.password = 'secret'
