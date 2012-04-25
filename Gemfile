@@ -95,9 +95,9 @@ gem 'dm-types',		    DM_VERSION, :git => "#{DATAMAPPER}/dm-types.git"
 gem 'dm-validations',	DM_VERSION, :git => "#{DATAMAPPER}/dm-validations.git"
 
 group :development do
-  gem 'rake',		    '~> 0.8'
-  gem 'ore-tasks',	'~> 0.4'
-  gem 'rspec',		  '~> 2.4'
+  gem 'rake',		        '~> 0.8'
+  gem 'rubygems-tasks',	'~> 0.1'
+  gem 'rspec',		      '~> 2.4'
 
   gem 'kramdown',   '~> 0.12'
   gem 'yard',       '~> 0.7'
