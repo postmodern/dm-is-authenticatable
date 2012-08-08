@@ -7,10 +7,10 @@ module DataMapper
       class UnknownResource < RuntimeError
       end
 
-      def is_authenticatable
+      def is_authenticatable(options={})
         # The encrypted password
         property :encrypted_password, DataMapper::Property::BCryptHash
-    
+
         extend DataMapper::Is::Authenticatable::ClassMethods
         include DataMapper::Is::Authenticatable::InstanceMethods
 
@@ -27,30 +27,15 @@ module DataMapper
         # @option attributes [String] :password
         #   The clear-text password to authenticate with.
         #
-        # @return [DataMapper::Resource]
-        #   The authenticated resource.
-        #
-        # @raise [UnknownResource]
-        #   The authenticatable resource could not be found in the repository.
-        #
-        # @raise [ArgumentError]
-        #   The `:password` option was not specified.
+        # @return [DataMapper::Resource, nil]
+        #   The authenticated resource. If the resource could not be found,
+        #   or the password did not match, `nil` will be returned.
         #
         def authenticate(attributes)
           password = attributes.delete(:password)
           resource = self.first(attributes)
 
-          unless resource
-            raise(UnknownResource,"could not find the authenticatable resource",caller)
-          end
-
-          unless password
-            raise(ArgumentError,"must specify the :password option",caller)
-          end
-
-          if resource.encrypted_password == password
-            resource
-          end
+          return resource if (resource && resource.has_password?(password))
         end
       end
 
@@ -73,6 +58,33 @@ module DataMapper
         def password=(new_password)
           self.encrypted_password = new_password
           @password = new_password
+        end
+
+        #
+        # Determines if a password is required for authentication.
+        #
+        # @return [Boolean]
+        #   Specifies whether a password is required or not.
+        #
+        # @since 0.2.0
+        #
+        def password_required?
+          !self.encrypted_password.nil?
+        end
+
+        #
+        # Determines if the submitted password matches the `encrypted_password`.
+        #
+        # @param [String] submitted_password
+        #   The submitted password.
+        #   
+        # @return [Boolean]
+        #   Specifies whether the submitted password matches.
+        #
+        # @since 0.2.0
+        #
+        def has_password?(submitted_password)
+          !password_required? || (self.encrypted_password == submitted_password)
         end
       end
     end
