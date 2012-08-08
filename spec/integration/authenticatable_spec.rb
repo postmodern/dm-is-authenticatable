@@ -3,9 +3,7 @@ require 'spec_helper'
 require 'integration/models/user'
 
 describe DataMapper::Is::Authenticatable do
-  before(:all) do
-    User.auto_migrate!
-  end
+  before(:all) { User.auto_migrate! }
 
   let(:password) { 'secret' }
 
@@ -15,41 +13,80 @@ describe DataMapper::Is::Authenticatable do
     subject.class.properties.should be_named(:encrypted_password)
   end
 
-  it "should not have a default password" do
-    subject.password.should be_nil
+  describe "validations" do
+    before { subject.password = password }
+
+    it "should require password confirmation" do
+      subject.should_not be_valid
+    end
+
+    it "should require the confirmation password match the password" do
+      subject.password_confirmation = 'fail'
+
+      subject.should_not be_valid
+    end
+
+    it "should confirmed both passwords" do
+      subject.password_confirmation = password
+
+      subject.should be_valid
+    end
   end
 
-  it "should not have an encrypted password by default" do
-    subject.encrypted_password.should be_nil
+  describe "#password" do
+    it "should not have a default password" do
+      subject.password.should be_nil
+    end
+
+    it "should allow setting the password" do
+      subject.password = password
+      subject.password.should == password
+    end
   end
 
-  it "should allow setting the password" do
-    subject.password = password
-    subject.password.should == password
+  describe "#password_required?" do
+    context "when encrypted_password is nil" do
+      before { subject.encrypted_password = nil }
+
+      it "should return false" do
+        subject.should_not be_password_required
+      end
+    end
+
+    context "when encrypted_password is set" do
+      before { subject.password = password }
+
+      it "should return true" do
+        subject.should be_password_required
+      end
+    end
   end
 
-  it "should update the encrypted password when setting the password" do
-    subject.password = password
-    subject.encrypted_password.should == password
+  describe "#has_password?" do
+    before { subject.password = password }
+
+    it "should compare the plain-text password against #encrypted_password" do
+      subject.should have_password(password)
+    end
+
+    context "when #password_required? is false" do
+      before { subject.stub(:password_required?).and_return(false) }
+
+      it "should return true" do
+        subject.should have_password('does not matter')
+      end
+    end
   end
 
-  it "should require password confirmation" do
-    subject.password = password
-    subject.should_not be_valid
-  end
+  describe "#encrypted_password" do
+    it "should not have an encrypted password by default" do
+      subject.encrypted_password.should be_nil
+    end
 
-  it "should require the confirmation password match the password" do
-    subject.password = password
-    subject.password_confirmation = 'fail'
-
-    subject.should_not be_valid
-  end
-
-  it "should validate confirmed passwords" do
-    subject.password = password
-    subject.password_confirmation = password
-
-    subject.should be_valid
+    it "should update the encrypted password when setting the password" do
+      subject.password = password
+      subject.encrypted_password.should == password
+    end
   end
 
   describe "authenticate" do
