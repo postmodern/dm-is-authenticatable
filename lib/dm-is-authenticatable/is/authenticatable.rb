@@ -4,9 +4,6 @@ require 'dm-validations'
 module DataMapper
   module Is
     module Authenticatable
-      class UnknownResource < RuntimeError
-      end
-
       def is_authenticatable(options={})
         # The encrypted password
         property :encrypted_password, DataMapper::Property::BCryptHash
