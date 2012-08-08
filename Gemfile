@@ -88,7 +88,7 @@ DO_VERSION = '~> 0.10.2'
 DM_DO_ADAPTERS = %w[ sqlite postgres mysql oracle sqlserver ]
 RAILS = 'http://github.com/rails/rails.git'
 
-gem 'bcrypt-ruby',	  '~> 2.1'
+gem 'bcrypt-ruby',	  ['~> 3.0', '>= 2.1']
 
 gem 'dm-core',        DM_VERSION, :git => "#{DATAMAPPER}/dm-core.git"
 gem 'dm-types',		    DM_VERSION, :git => "#{DATAMAPPER}/dm-types.git"
