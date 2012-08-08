@@ -1,5 +1,5 @@
 name: dm-is-authenticatable
-version: 0.1.2
+version: 0.2.0
 summary: DataMapper plugin for adding authentication to models.
 description:
   A DataMapper plugin for adding authentication and encrypted passwords to
