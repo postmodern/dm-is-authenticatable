@@ -32,7 +32,9 @@ module DataMapper
           password = attributes.delete(:password)
           resource = self.first(attributes)
 
-          return resource if (resource && resource.has_password?(password))
+          if (resource && resource.has_password?(password))
+            return resource
+          end
         end
       end
 
