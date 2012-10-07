@@ -8,7 +8,7 @@ description:
 license: MIT
 authors: Postmodern
 email: postmodern.mod3@gmail.com
-homepage: http://github.com/postmodern/dm-is-authenticatable
+homepage: https://github.com/postmodern/dm-is-authenticatable#readme
 has_yard: true
 
 dependencies:

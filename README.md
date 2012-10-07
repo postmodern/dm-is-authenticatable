@@ -8,9 +8,8 @@
 ## Description
 
 A DataMapper plugin for adding authentication and encrypted passwords to
-your DataMapper models. Ideal for use with
-[warden](http://github.com/hassox/warden) or
-[sinatra_warden](http://github.com/jsmestad/sinatra_warden).
+your DataMapper models. Ideal for use with [warden], [sinatra_warden] or
+[padrino-warden].
 
 ## Example
 
@@ -59,7 +58,7 @@ Handles finding and authenticating resources in the database:
     User.authenticate(:name => 'bob', :password => 'secret')
     # => #<User: ...>
 
-Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme):
+Using dm-is-authenticatable with [warden]:
 
     Warden::Manager.serialize_into_session { |user| user.id }
     Warden::Manager.serialize_from_session { |id| User.get(id) }
@@ -86,10 +85,10 @@ Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme
 
 ## Requirements
 
-* [bcrypt-ruby](http://rubygems.org/gems/bcrypt-ruby) ~> 3.0, >= 2.1.0
-* [dm-core](http://github.com/datamapper/dm-core/) ~> 1.0
-* [dm-types](http://github.com/datamapper/dm-types/) ~> 1.0
-* [dm-validations](http://github.com/datamapper/dm-validations/) ~> 1.0
+* [bcrypt-ruby](https://github.com/codahale/bcrypt-ruby#readme) ~> 3.0, >= 2.1.0
+* [dm-core](https://github.com/datamapper/dm-core#readme) ~> 1.0
+* [dm-types](https://github.com/datamapper/dm-types#readme) ~> 1.0
+* [dm-validations](https://github.com/datamapper/dm-validations#readme) ~> 1.0
 
 ## Install
 
@@ -100,3 +99,7 @@ Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme
 Copyright (c) 2010-2011 Hal Brodigan
 
 See {file:LICENSE.txt} for license information.
+
+[warden]: https://github.com/hassox/warden#readme
+[sinatra_warden]: https://github.com/jsmestad/sinatra_warden#readme
+[padrino-warden]: https://github.com/jondot/padrino-warden#readme
