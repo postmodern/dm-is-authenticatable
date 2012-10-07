@@ -72,7 +72,7 @@ Using dm-is-authenticatable with [Warden](http://github.com/hassox/warden#readme
  
       def authenticate!
         attributes = {
-          :name => params['name'],
+          :name     => params['name'],
           :password => params['password']
         }
 
