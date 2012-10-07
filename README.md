@@ -1,7 +1,7 @@
 # dm-is-authenticatable
 
-* [Source](http://github.com/postmodern/dm-is-authenticatable)
-* [Issues](http://github.com/postmodern/dm-is-authenticatable/issues)
+* [Source](https://github.com/postmodern/dm-is-authenticatable)
+* [Issues](https://github.com/postmodern/dm-is-authenticatable/issues)
 * [Documentation](http://rubydoc.info/gems/dm-is-authenticatable/frames)
 * [Email](mailto:postmodern.mod3 at gmail.com)
 
