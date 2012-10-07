@@ -1,3 +1,11 @@
+### 0.2.0 / 2012-10-06
+
+* Added {DataMapper::Is::Authenticatable::InstanceMethods#password_required?}.
+* Added {DataMapper::Is::Authenticatable::InstanceMethods#has_password?}.
+* {DataMapper::Is::Authenticatable::ClassMethods#authenticate}:
+  * Simply return `nil` instead of raising exceptions in
+  * Support authenticating models without encrypted passwords.
+
 ### 0.1.2 / 2011-10-26
 
 * Require bcrypt-ruby ~> 3.0, >= 2.1.0.
