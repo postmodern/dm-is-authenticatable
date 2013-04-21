@@ -1,3 +1,9 @@
+### 0.3.0 / 2013-04-20
+
+* If `encrypted_password` is `nil`, have
+  {DataMapper::Is::Authenticatable::InstanceMethods#has_password?} only accept
+  `nil` or `""`.
+
 ### 0.2.0 / 2012-10-06
 
 * Added {DataMapper::Is::Authenticatable::InstanceMethods#password_required?}.
