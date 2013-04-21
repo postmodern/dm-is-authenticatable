@@ -83,7 +83,11 @@ module DataMapper
         # @since 0.2.0
         #
         def has_password?(submitted_password)
-          !password_required? || (self.encrypted_password == submitted_password)
+          if password_required?
+            self.encrypted_password == submitted_password
+          else
+            submitted_password.nil? || submitted_password.empty?
+          end
         end
       end
     end

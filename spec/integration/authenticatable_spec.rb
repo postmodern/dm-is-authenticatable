@@ -72,8 +72,16 @@ describe DataMapper::Is::Authenticatable do
     context "when #password_required? is false" do
       before { subject.stub(:password_required?).and_return(false) }
 
-      it "should return true" do
-        subject.should have_password('does not matter')
+      it "should return true for nil" do
+        subject.should have_password(nil)
+      end
+
+      it "should return true for ''" do
+        subject.should have_password('')
+      end
+
+      it "should return false for any other String" do
+        subject.should_not have_password('foo')
       end
     end
   end
@@ -116,6 +124,30 @@ describe DataMapper::Is::Authenticatable do
       user = subject.authenticate(:name => name, :password => 'fail')
 
       user.should be_nil
+    end
+
+    context "when encrypted password is nil" do
+      before(:all) do
+        User.first(:name => name).update(:encrypted_password => nil)
+      end
+
+      it "should allow authenticating with a nil password" do
+        user = subject.authenticate(:name => name, :password => nil)
+
+        user.name.should == name
+      end
+
+      it "should allow authenticating with an empty password" do
+        user = subject.authenticate(:name => name, :password => '')
+
+        user.name.should == name
+      end
+
+      it "should not allow authenticating with any other password" do
+        user = subject.authenticate(:name => name, :password => 'foo')
+
+        user.should be_nil
+      end
     end
   end
 end
