@@ -80,7 +80,7 @@
 # Gemfile.lock is added to the .gitignore file, so you don't need to worry
 # about accidentally checking it into version control.
 
-source :rubygems
+source 'https://rubygems.org'
 
 DATAMAPPER = 'http://github.com/datamapper'
 DM_VERSION = '~> 1.0'
