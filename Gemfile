@@ -95,7 +95,7 @@ gem 'dm-types',		    DM_VERSION, :git => "#{DATAMAPPER}/dm-types.git"
 gem 'dm-validations',	DM_VERSION, :git => "#{DATAMAPPER}/dm-validations.git"
 
 group :development do
-  gem 'rake',		        '~> 0.8'
+  gem 'rake',		        '~> 10.0'
   gem 'rubygems-tasks',	'~> 0.1'
   gem 'rspec',		      '~> 2.4'
 
