@@ -4,6 +4,10 @@ require 'dm-validations'
 module DataMapper
   module Is
     module Authenticatable
+      #
+      # Adds the `encrypted_password property` and mixs in {ClassMethods}
+      # and {InstanceMethods}.
+      #
       def is_authenticatable(options={})
         # The encrypted password
         property :encrypted_password, DataMapper::Property::BCryptHash
@@ -14,6 +18,9 @@ module DataMapper
         validates_confirmation_of :password
       end
 
+      #
+      # Class methods.
+      #
       module ClassMethods
         #
         # Finds and authenticates a resource.
@@ -38,6 +45,9 @@ module DataMapper
         end
       end
 
+      #
+      # Instance methods.
+      #
       module InstanceMethods
         # The clear-text password
         attr_reader :password
