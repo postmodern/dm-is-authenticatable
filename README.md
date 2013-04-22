@@ -85,10 +85,10 @@ Using dm-is-authenticatable with [warden]:
 
 ## Requirements
 
-* [bcrypt-ruby](https://github.com/codahale/bcrypt-ruby#readme) ~> 3.0, >= 2.1.0
-* [dm-core](https://github.com/datamapper/dm-core#readme) ~> 1.0
-* [dm-types](https://github.com/datamapper/dm-types#readme) ~> 1.0
-* [dm-validations](https://github.com/datamapper/dm-validations#readme) ~> 1.0
+* [bcrypt-ruby] ~> 3.0, >= 2.1.0
+* [dm-core] ~> 1.0
+* [dm-types] ~> 1.0
+* [dm-validations] ~> 1.0
 
 ## Install
 
@@ -103,3 +103,8 @@ See {file:LICENSE.txt} for license information.
 [warden]: https://github.com/hassox/warden#readme
 [sinatra_warden]: https://github.com/jsmestad/sinatra_warden#readme
 [padrino-warden]: https://github.com/jondot/padrino-warden#readme
+
+[bcrypt-ruby]: https://github.com/codahale/bcrypt-ruby#readme
+[dm-core]: https://github.com/datamapper/dm-core#readme
+[dm-types]: https://github.com/datamapper/dm-types#readme
+[dm-validations]: https://github.com/datamapper/dm-validations#readme
