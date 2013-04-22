@@ -1,4 +1,4 @@
-### 0.3.0 / 2013-04-20
+### 0.3.0 / 2013-04-22
 
 * If `encrypted_password` is `nil`, have
   {DataMapper::Is::Authenticatable::InstanceMethods#has_password?} only accept
